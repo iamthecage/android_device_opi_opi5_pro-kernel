@@ -26,6 +26,5 @@ fi;
 
 part uuid ${boot_device} ${boot_devnum}:${root_partnum} partuuid
 
-setenv bootargs "loglevel=8 earlycon=uart8250,mmio32,0xfeb50000 console=ttyS2,1500000 root=/dev/ram0 rootwait pcie_aspm=off pcie_port_pm=off nvme_core.default_ps_max_latency_us=0 androidboot.boot_part_uuid=${partuuid} androidboot.hardware=opi5 androidboot.selinux=permissive"
-
+setenv bootargs "loglevel=8 earlycon=uart8250,mmio32,0xfeb50000 console=ttyFIQ0 root=/dev/ram0 rootwait pcie_aspm=off pcie_port_pm=off nvme_core.default_ps_max_latency_us=0 androidboot.boot_part_uuid=${partuuid} androidboot.hardware=opi5 androidboot.selinux=permissive androidboot.boot_devices=fe2e0000.mmc init=/init"
 booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}
